@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Chromora Studio</title>
+    <link rel="icon" href="images/Glossy%20Multicolour%20Liquid%20C%20Logo.png">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+    <div class="back-ground"></div>
+    <div class="back-color c1"></div>
+    <div class="back-color c2"></div>
+    <div class="back-color c3"></div>
+    <div class="mouse-glow" id="mouseGlow"></div>
+    <div class="background-animation">
+        <span style="--i:1;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:10;"></span>
+    </div>
+    <main class="auth-page">
+        <section class="auth-card">
+
+            <h1><a class="auth-logo-link" href="index.html">
+                <img class="auth-logo"
+                    src="images/Glossy%20Multicolour%20Liquid%20C%20Logo.png"
+                    alt="Chromora Studio home">
+            </a>Sign In</h1>
+            <p class="auth-subtitle">Welcome back! Please enter your details.</p>
+
+            <form class="auth-form" id="signin-form">
+
+                <div class="input-cont">
+                    <label class="label" for="email">Email address</label>
+                    <input class="auth-input" id="email" name="email"
+                        type="email" placeholder="Email address" autocomplete="off">
+                </div>
+
+                <div class="input-cont">
+                    <label class="label" for="password">Password</label>
+                    <input class="auth-input" id="password" name="password"
+                        type="password" placeholder="Password"
+                        autocomplete="current-password" required>
+
+                    <!-- Added data-toggle-password attribute -->
+                    <button class="eye-btn" data-toggle-password="password" type="button"
+                        aria-label="Show password" aria-controls="password">
+                        <i class="bi bi-eye-fill" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <p class="validation-message1" id="auth-message" role="status" hidden></p>
+
+                <button class="btn-create" type="submit">Sign in</button>
+            </form>
+
+            <p class="switch-text">
+                New to Chromora? <a href="./signup.html">Create account</a>
+            </p>
+
+        </section>
+    </main>
+    
+</body>
+</html>

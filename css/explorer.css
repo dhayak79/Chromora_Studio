@@ -1,0 +1,266 @@
+.explorer{
+    width:85%;
+    margin:28px auto 60px;
+}
+.explorer-card{
+    display: grid;
+    gap:22px;
+    padding: 28px;
+}
+.explorer-intro h2{
+    font-size: 1.7rem;
+    color: #1f1d2b; 
+    margin-bottom: 6px;
+}
+.explorer-intro p {
+    color: var(--color-text-muted);
+    line-height: 2;
+}
+.explorer-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+}
+#palette-search{
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: 13px 18px;
+    font: inherit;
+    color: #1f1d2b;
+    background: var(--color-surface);
+    border: none;
+    border-radius: var(--radius-control);
+    box-shadow: var(--shadow-inset);
+}
+.explorer-btn-cont {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.explorer-btn-cont .hormoni-btn {
+    padding: 9px 18px;
+    font-size: 0.9rem;
+}
+.explorer-count {
+    margin: 22px 4px 14px;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+.explorer-empty {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--color-text-muted);
+}
+.palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 24px;
+}
+.palette-card {
+    padding: 14px 14px 18px;
+    display: flex;
+    row-gap: 14px;
+    flex-wrap: wrap;
+    max-height: 285px;
+    justify-content: space-around;
+}
+.swatch-strip {
+    display: flex;
+    height: 150px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow-inset);
+    width: 100%;
+}
+.swatch {
+    flex: 1;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02rem;
+    letter-spacing: 0.02em;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: flex 0.25s ease;
+    color: transparent;
+
+}
+.swatch:hover,.swatch:focus-visible{
+    flex: 1.7;
+    color: rgba(0, 0, 0, 0.467);
+}
+.card-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    padding: 0 10px;
+    width: 100%;
+}
+.card-data h3 {
+    font-size: 1.05rem;
+    color: #1f1d2b;
+}
+.card-data span {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+}
+.open-link {
+    margin: 0 6px;
+    padding: 11px 16px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-on-primary);
+    background: var(--color-primary);
+    border-radius: 999px;
+    transition: background 0.2s ease;
+    width: 100%;
+    max-height: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+.open-link1 {
+    margin: 0px 0px;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-on-primary);
+    background: var(--color-primary);
+    border-radius: 999px;
+    transition: background 0.2s ease;
+}
+.open-link:hover {
+    background: var(--color-primary-hover);
+    color: var(--color-on-primary);
+}
+.toast {
+    position: fixed;
+    z-index: 5;
+    left: 50%;
+    bottom: 28px;
+    transform: translate(-50%, 20px);
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: #1f1d2b;
+    color: #fff;
+    font-size: 0.9rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+@media (max-width: 800px) {
+    .explorer, 
+    .header-container {
+        width: 92%;
+    }
+    .header-container {
+        flex-wrap: wrap;
+    }
+    .header-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .swatch, 
+    .toast, 
+    .open-link {
+        transition: none;
+    }
+}
+
+.hormoni-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 21px;
+    border: none;
+    border-radius: 50px;
+    background: #F7F5F0;
+    color: #3F3B4A;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 1px -6px 8px rgba(120, 100, 115, 0.22), 1px -3px 6px rgba(255, 255, 255, 1), inset -2px -2px 5px rgba(120, 100, 114, 0.08), inset 2px 2px 5px rgba(255, 255, 255, 0.9);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.hormoni-btn:hover {
+    transform: translateY(-3px);
+    /* box-shadow:
+        8px 10px 18px rgba(120, 100, 115, 0.26),
+        -6px -6px 14px rgba(255, 255, 255, 0.95),
+        inset -2px -2px 5px rgba(120, 100, 115, 0.08),
+        inset 2px 2px 5px rgba(255, 255, 255, 0.9); */
+}
+.head-nav:hover{
+    transform: translateY(-3px);
+}
+
+.hormoni-btn:active {
+    transform: translateY(10px) scale(0.97);
+    box-shadow:
+        inset 4px 4px 9px rgba(120, 100, 115, 0.28),
+        inset -4px -4px 9px rgba(255, 255, 255, 0.95);
+}
+
+.hormoni-btn.is-active {
+    color: rgb(81, 77, 77);
+    font-weight: 600;
+    background: rgba(244, 241, 241, 0.279);
+    background-clip:text;
+    box-shadow:
+        inset 4px 4px 9px rgba(120, 100, 115, 0.28),
+        inset -4px -4px 9px rgba(255, 255, 255, 0.95);
+    animation: clay-pop 0.35s ease;
+}
+.head-nav.is-active {
+    color: rgb(81, 77, 77);
+    font-weight: 600;
+    background: rgba(244, 241, 241, 0.279);
+    background-clip:text;
+    box-shadow:
+        inset 4px 4px 9px rgba(120, 100, 115, 0.28),
+        inset -4px -4px 9px rgba(255, 255, 255, 0.95);
+    animation: clay-pop 0.35s ease;
+}
+.is-active{
+    color: rgb(81, 77, 77);
+    font-weight: 600;
+    background: rgba(244, 241, 241, 0.279);
+    background-clip:text;
+    box-shadow:
+        inset 4px 4px 9px rgba(120, 100, 115, 0.28),
+        inset -4px -4px 9px rgba(255, 255, 255, 0.95);
+    animation: clay-pop 0.35s ease;
+}
+
+.hormoni-btn.is-active:hover {
+    transform: none;
+}
+.head-nav.is-active:hover {
+    transform: none;
+}
+.hormoni-btn.is-active::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(81, 77, 77);
+}

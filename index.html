@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chromora Studio</title>
+    <link rel="icon" href="images/Glossy%20Multicolour%20Liquid%20C%20Logo.png">
+    <link rel="stylesheet" href="css/explorer.css">
+    <link rel="stylesheet" href="css/Studio.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/common.js" defer></script>
+    <script src="js/config.js" defer></script>
+   <script type="importmap">{"imports": {
+      "colord": "https://esm.sh/colord",
+      "colord/plugins/harmonies": "https://esm.sh/colord/plugins/harmonies",
+      "colord/plugins/a11y": "https://esm.sh/colord/plugins/a11y"}}
+</script>
+    <script type="module" src="js/main.js"></script>
+</head>
+<body>
+
+    <div class="back-ground"></div>
+    <div class="back-color c1"></div>
+    <div class="back-color c2"></div>
+    <div class="back-color c3"></div>
+    <div class="mouse-glow" id="mouseGlow"></div>
+
+    <div class="background-animation">
+        <span style="--i:1;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:10;"></span>
+       
+    </div>
+    <section class="whole-container">
+        <section class="header-container glass-card">
+            <section class="logo-and-head">
+                <a href="./index.html" class="header-logo-link" tabindex="0">
+                <!-- <img src="images/swpycOYAESPHjbwqeUzw02kcMetQxbvOt29tjMPesPOnIjE7WtnVn3KbfeJW16HYmFpUn_n_2_dVIpE6vmydI4uVwsNZ7-zQBr35oB5kmII0dV-_ejpMTDhNZcJdMm6Yc_wERrobIhKqUMi2mFCm6cZZw03QNov848UZpXEYDS2hAd2u8QnmA6_MCROAB9X-.jpeg" alt="Logo" class="header-logo" > -->
+                </a>
+            <h1 class="header-title"> <a href="./index.html">Chromora Studio</a></h1>
+            </section>
+        
+            <section class="header-nav">
+                <p> <a href="./index.html" class="head-nav">Studio</a></p>
+                <p> <a href="./explorer.html" class="head-nav">Explorer</a></p>
+                <p> <a href="./favourites.html" class="head-nav">Favorites</a></p>
+                <p id="signInNav"><a href="signin.html" class="head-nav sign-in">Sign In</a></p>
+                <div class="profile-menu-container hidden" id="profileMenuContainer">
+                    <button type="button" class="profile-avatar" id="profileAvatarBtn" title="Account">
+                    </button>
+                    <div class="profile-dropdown glass-card hidden" id="profileDropdown">
+                        <p class="dropdown-user-info" id="dropdownUserName">User</p>
+                        <hr class="dropdown-divider">
+                        <button type="button" class="logout-btn" id="logoutBtn">Log out</button>
+                    </div>
+                </div>
+            </section>
+
+        </section>
+        
+        <section class="color-pick-and-show">
+            <section class="color-picker-out-container glass-card">
+                <!-- <h3 class="color-picker-title">Color Picker</h3> -->
+                <button id="savePaletteBtn" class="neu-button accent-btn">Save Palette <i class="bi bi-save"></i></button>
+                <section class="color-show-container"></section>
+                
+                <input type="color" id="color-picker" value="#e1b7b7">
+                <input type="text" id="color-input" value="#e1b7b7">
+                    
+                <section class="show-diff-code">
+                    HEX : <span id="hex-value">#e1b7b7</span>
+                </section>
+                <section class="show-diff-code">
+                    RGB : <span id="rgb-value">rgb(230, 188, 188)<i class="bi bi-copy"></i></span>
+                </section>
+                <section class="show-diff-code">
+                    HSL : <span id="hsl-value">hsl(0, 51%, 85%)</span>
+                </section>
+
+            </section>
+            <section class="color-list-container glass-card ">
+                <section class="color-list-flex-cont">
+                    <h3 class="color-list-title">Palette</h3>
+                    <section class="color-harmonies-cont">
+                        <button class="hormoni-btn glass-card" data-mono="Monochromatic">Monochromatic</button>
+                        <button class="hormoni-btn glass-card" data-analog="Analogous">Analogous</button>
+                        <button class="hormoni-btn glass-card" data-complementary="Complementary">Complementary</button>
+                        <button class="hormoni-btn glass-card" data-triadic="Triadic">Triadic</button>
+                        <button class="hormoni-btn glass-card" data-split="split-complementary">Split-Complementary</button>
+                    </section>
+                </section>
+                <section class="color-shade-cont">
+                    <!-- <section class="box"></section>
+                    <section class="box"></section>
+                    <section class="box"></section> -->
+
+                </section>
+                <section class="color-shade-cont1">
+
+                </section>
+                <p class="help-text">Top strips core harmony & Bottom strips tints & shades(light to dark) click any line to copy</p>
+            </section>    
+        </section>
+        <svg class="svg-filters">
+            <defs>
+                <filter id="protanopia">
+                    <feColorMatrix type="matrix" values="
+                        0.567 0.433 0 0 0
+                        0.558 0.442 0 0 0
+                        0 0.242 0.758 0 0
+                        0 0 0 1 0"/>
+                </filter>
+                <filter id="deuteranopia">
+                    <feColorMatrix type="matrix" values="
+                        0.625 0.375 0 0 0
+                        0.700 0.300 0 0 0
+                        0 0.300 0.700 0 0
+                        0 0 0 1 0"/>
+                </filter>
+                <filter id="tritanopia">
+                    <feColorMatrix type="matrix" values="
+                        0.950 0.050 0 0 0
+                        0 0.433 0.567 0 0
+                        0 0.475 0.525 0 0
+                        0 0 0 1 0"/>
+                </filter>
+                <filter id="achromatopsia">
+                    <feColorMatrix type="matrix" values="
+                        0.299 0.587 0.114 0 0
+                        0.299 0.587 0.114 0 0
+                        0.299 0.587 0.114 0 0
+                        0 0 0 1 0"/>
+                </filter>
+            </defs>
+        </svg>
+
+        <main class="live-preview">
+            <header class="preview-toolbar">
+                <div class="live-preview-cont">
+                    <h2>LIVE PREVIEW</h2>
+                    <span class="live-status-pill" id="liveStatusPill">
+                        <span class="live-pulse-dot"></span>
+                        
+                    </span>
+                </div>
+                <section class="toolbar-controls">
+                    <label class="switch" title="Toggle Dark/Light Mode">
+                    <input class="switch__input" type="checkbox" role="switch" id="theme-toggle-checkbox" />
+                    <span class="switch__icon">
+                        <span class="switch__icon-part switch__icon-part--1"></span>
+                        <span class="switch__icon-part switch__icon-part--2"></span>
+                        <span class="switch__icon-part switch__icon-part--3"></span>
+                        <span class="switch__icon-part switch__icon-part--4"></span>
+                        <span class="switch__icon-part switch__icon-part--5"></span>
+                        <span class="switch__icon-part switch__icon-part--6"></span>
+                        <span class="switch__icon-part switch__icon-part--7"></span>
+                        <span class="switch__icon-part switch__icon-part--8"></span>
+                        <span class="switch__icon-part switch__icon-part--9"></span>
+                        <span class="switch__icon-part switch__icon-part--10"></span>
+                        <span class="switch__icon-part switch__icon-part--11"></span>
+                    </span>
+                    <span class="switch__sr">Dark Mode</span>
+                    </label>
+                    
+                    <section class="vision-control" style="position: relative;">
+                        <label for="vision-mode">Vision</label>
+                        <select id="vision-mode">
+                            <option value="normal">Normal</option>
+                            <option value="protanopia">Protanopia</option>
+                            <option value="deuteranopia">Deuteranopia</option>
+                            <option value="tritanopia">Tritanopia</option>
+                            <option value="achromatopsia">Achromatopsia</option>
+                        </select>
+                        <button type="button" class="info-btn" id="info-trigger">ⓘ</button>
+                        <div id="vision-tooltip" class="vision-tooltip hidden">
+                            <h4 id="tooltip-title">Title</h4>
+                            <p id="tooltip-desc">Description goes here...</p>
+                        </div>
+                </section>
+            </header>
+
+            <section class="preview-page" id="preview-page">
+                <section class="sample-nav">
+                    <a class="brand" href="#home">Chromora</a>
+                    <section class="nav-links">
+                        <a>Product</a>
+                        <a>Pricing</a>
+                        <a>Docs</a>
+                    </section>
+                    <button class="sample-button nav-button">Sign in</button>
+                </section>
+
+                <section class="sample-content" id="home">
+                    <section class="hero">
+                        <p class="eyebrow">YOUR WORKSPACE, SIMPLIFIED</p>
+                        <h1>Plan work that people actually finish.</h1>
+                        <p class="hero-description">
+                            Tasks, docs and timelines in one calm workspace.
+                            Set it up in minutes, see progress at a glance.
+                        </p>
+                        <section class="hero-actions">
+                            <button class="sample-button">Start free trial</button>
+                            <button class="sample-button secondary-button">See how it works</button>
+                        </section>
+                    </section>
+
+                    <section class="feature-grid" id="product">
+                        <section class="feature-card">
+                            <section class="feature-icon icon-one"></section>
+                            <h3>Shared timelines</h3>
+                            <p>Everyone sees what is next.</p>
+                        </section>
+                        <section class="feature-card">
+                            <section class="feature-icon icon-two"></section>
+                            <h3>Live docs</h3>
+                            <p>Write together without clutter.</p>
+                        </section>
+                        <section class="feature-card">
+                            <section class="feature-icon icon-three"></section>
+                            <h3>Clear reports</h3>
+                            <p>Weekly summaries that read well.</p>
+                            <a href="#reports">Learn more</a>
+                        </section>
+                    </section>
+
+                    <section class="dashboard-grid">
+                        <section class="dashboard-card">
+                            <h3>Tasks completed</h3>
+                            <p class="muted-text">Last 7 days</p>
+                            <section class="chart" aria-label="Weekly task chart">
+                                <span style="height: 38%"></span>
+                                <span style="height: 57%"></span>
+                                <span style="height: 45%"></span>
+                                <span style="height: 76%"></span>
+                                <span style="height: 65%"></span>
+                                <span style="height: 90%"></span>
+                                <span style="height: 52%"></span>
+                            </section>
+                        </section>
+                        <section class="dashboard-card">
+                            <h3>Up next</h3>
+                            <section class="task-row">
+                                <span>Design review</span>
+                                <span class="task-badge">Today</span>
+                            </section>
+                            <section class="task-row">
+                                <span>Ship v2.1</span>
+                                <span class="muted-text">Fri</span>
+                            </section>
+                            <section class="task-row">
+                                <span>Team sync</span>
+                                <span class="muted-text">Mon</span>
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+
+            <p class="preview-note">Vision simulations are approximations and may not represent every individual's color perception.</p>
+        </main>
+    
+        <section id="ai-model-container" class="ai-model-container glass-card hidden">
+            <section class="ai-modal-card glass-card">
+                <section class="ai-modal-header">
+                    <section>
+                        <span class="ai-badge">AI DESIGNER</span>
+                        <h2 id="aiModalTitle">Studio Palette Reviewer</h2>
+                    </section>
+                    
+                </section>
+                
+            </section>
+            <section class="ai-captured-palette">
+                <section class="ai-palette-header">
+                    <span>Active Color & Generated Harmony</span>
+                    <!-- <strong id="aiActiveHexLabel">#E1B7B7</strong> -->
+                </section>
+                <section class="ai-swatch-strip" id="aiModalSwatches">
+                </section>
+            </section>
+            <section class="ai-field">
+                <label for="aiWebsiteType">What kind of website are you building?</label>
+                <select id="aiWebsiteType" class="ai-control">
+                    <option value="SaaS or Technology Product">SaaS / Technology Product</option>
+                    <option value="Portfolio or Personal Brand">Portfolio / Personal Brand</option>
+                    <option value="E-Commerce or Online Store">E-Commerce / Online Store</option>
+                    <option value="Healthcare or Wellness">Healthcare / Wellness</option>
+                    <option value="Finance or Fintech">Finance / Fintech</option>
+                    <option value="Food, Cafe, or Restaurant">Food, Cafe, or Restaurant</option>
+                    <option value="Creative Agency or Studio">Creative Agency / Studio</option>
+                    <option value="Education or E-Learning">Education / E-Learning</option>
+                </select>
+            </section>
+            <section class="ai-field">
+                <label for="aiExtraContext">Extra context (optional)</label>
+                <input type="text" id="aiExtraContext" class="ai-control" placeholder="e.g., Minimalist dark mode, Gen-Z audience, luxury vibe...">
+            </section>
+            <button type="button" id="runAiAnalysisBtn" class="ai-submit-btn">
+                ✨ Evaluate Palette for This Website
+            </button>
+            <section id="aiResultContainer" class="ai-result-box hidden">
+                <section class="ai-result-header">
+                    <span>AI UI/UX Verdict</span>
+
+                    <!-- <button type="button" id="copyAiResultBtn" class="small-pill-btn">refresh</button> -->
+                </section>
+                <section id="aiResultText" class="ai-result-content"></section>
+            </section>
+
+        </section>
+        <button class="Ai-assitent" id="Ai-assitent-btn">
+            <img src="./images/icons8-ai-24.png" alt="">
+        </button>
+        <p class="toast" id="toast"></p>
+    </section>
+</body>
+</html>

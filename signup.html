@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | Chromora Studio</title>
+    <link rel="icon" href="images/Glossy%20Multicolour%20Liquid%20C%20Logo.png">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="js/auth.js" defer></script>
+</head>
+<body>
+    <div class="back-ground"></div>
+    <div class="back-color c1"></div>
+    <div class="back-color c2"></div>
+    <div class="back-color c3"></div>
+    <div class="mouse-glow" id="mouseGlow"></div>
+    <div class="background-animation">
+        <span style="--i:1;"></span>
+        <span style="--i:3;"></span>
+        <span style="--i:5;"></span>
+        <span style="--i:7;"></span>
+        <span style="--i:9;"></span>
+        <span style="--i:2;"></span>
+        <span style="--i:6;"></span>
+        <span style="--i:8;"></span>
+        <span style="--i:10;"></span>
+    </div>
+    <main class="auth-page">
+        <section class="auth-card">
+
+            <h1><a class="auth-logo-link" href="index.html">
+                <img class="auth-logo"
+                    src="images/Glossy%20Multicolour%20Liquid%20C%20Logo.png"
+                    alt="Chromora Studio home">
+            </a>Sign Up</h1>
+
+            <form class="auth-form" id="signup-form">
+
+                <div class="input-cont">
+                    <label class="label" for="first-name">First name</label>
+                    <input class="auth-input" id="first-name" name="firstName"
+                        type="text" placeholder="First name"
+                        autocomplete="given-name" required>
+                </div>
+
+                <div class="input-cont">
+                    <label class="label" for="last-name">Last name</label>
+                    <input class="auth-input" id="last-name" name="lastName"
+                        type="text" placeholder="Last name"
+                        autocomplete="family-name" required>
+                </div>
+
+                <div class="input-cont">
+                    <label class="label" for="email">Email address</label>
+                    <input class="auth-input" id="email" name="email"
+                        type="email" placeholder="Email address"
+                        autocomplete="email" required>
+                </div>
+
+                <div class="input-cont">
+                    <label class="label" for="password">Password</label>
+                    <input class="auth-input" id="password" name="password"
+                        type="password" placeholder="Password"
+                        autocomplete="new-password" minlength="8" required>
+                    <button class="eye-btn" data-toggle-password="password" type="button">
+                        <i class="bi bi-eye-fill"></i>
+                    </button>
+                </div>
+
+                <div class="input-cont">
+                    <label class="label" for="confirm-password">Confirm Password</label>
+                    <input class="auth-input" id="confirm-password" name="confirmPassword"
+                        type="password" placeholder="Confirm Password"
+                        autocomplete="new-password" minlength="8" required>
+
+                    <button class="eye-btn" data-toggle-password="confirm-password" type="button">
+                        <i class="bi bi-eye-fill" ></i>
+                    </button>
+                </div>
+
+                <p class="validation-message" id="auth-message" role="status" hidden></p>
+
+                <button class="btn-create" type="submit">Create account</button>
+            </form>
+
+            <p class="switch-text">
+                Already have an account? <a href="./signin.html">Sign in</a>
+            </p>
+
+        </section>
+    </main>
+</body>
+</html>

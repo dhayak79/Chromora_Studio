@@ -1,0 +1,12 @@
+
+{
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "colord": "^2.10.0"
+  },
+  "devDependencies": {
+    "vite": "^8.3.4"
+  }
+}
