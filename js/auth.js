@@ -208,7 +208,7 @@ async function handleSignup(event) {
     }
 
     if (!validatePassword(password)) {
-        showMessage(message, "Your password is week");
+        showMessage(message, "Your password is weak");
         return;
     }
 
